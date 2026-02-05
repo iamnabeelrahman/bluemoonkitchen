@@ -83,6 +83,64 @@ console.log(objectBack);
 
 console.log("\n===== ADVANCED TYPE COERCION =====");
 
+// Array coercion
+console.log([] + []); // ""
+
+console.log([] + {}); // "[object Object]"
+
+// Unary plus converts string → number
+console.log(+"42"); // 42
+
+// null & undefined math
+console.log(null + 1); // 1
+console.log(undefined + 1); // NaN
+
+// Double NOT (!!) converts to boolean
+console.log(!!"hello"); // true
+console.log(!!0); // false
+
+console.log("\n===== DATE CONVERSIONS =====");
+
+// Timestamp → readable date
+const timestamp = Date.now();
+console.log(new Date(timestamp));
+
+// String → Date object
+const dateFromString = new Date("2026-02-04");
+console.log(dateFromString);
+
+// Date → DD/MM/YYYY
+const today = new Date();
+const formattedDate = `${today.getDate().toString().padStart(2, "0")}/${(
+  today.getMonth() + 1
+)
+  .toString()
+  .padStart(2, "0")}/${today.getFullYear()}`;
+
+console.log(formattedDate);
+
+console.log("\n===== DATA TRANSFORMATIONS =====");
+
+// Nested array → flat
+const nested = [1, [2, [3, 4]]];
+console.log(nested.flat(Infinity)); // [1,2,3,4]
+
+// "15%" → 0.15
+console.log(parseFloat("15%") / 100);
+
+// Hex string → decimal
+console.log(Number("0xFF")); // 255
+
+console.log("\n===== UNIVERSAL BOOLEAN CONVERTER =====");
+
+function toBoolean(value) {
+  return Boolean(value);
+}
+
+console.log(toBoolean(0)); // false
+console.log(toBoolean("Hi")); // true
+console.log(toBoolean(null)); // false
+
 /*
 ========================================
 📝 QUESTIONS TO SOLVE TOMORROW
